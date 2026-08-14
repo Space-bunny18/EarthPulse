@@ -2393,3 +2393,372 @@
     }
 
 }
+/* =========================================================
+   EXPLORER RESPONSIVE SYSTEM
+   ========================================================= */
+
+
+/* =========================================================
+   DESKTOP
+   901px+
+   Keep the original Explorer layout
+   ========================================================= */
+
+@media (min-width: 901px) {
+
+    .explorer-body {
+        display: grid;
+    }
+
+    .toolbar {
+        display: flex;
+    }
+
+    .globe-viewer {
+        min-width: 0;
+    }
+
+    .info-panel {
+        display: block;
+    }
+
+}
+
+
+/* =========================================================
+   TABLET
+   601px - 900px
+   ========================================================= */
+
+@media (min-width: 601px) and (max-width: 900px) {
+
+    .explorer-body {
+        display: grid;
+
+        grid-template-columns:
+            58px
+            minmax(0, 1fr)
+            minmax(220px, 30%);
+
+        width: 100%;
+    }
+
+
+    /* TOOLBAR */
+
+    .toolbar {
+        width: 58px;
+
+        display: flex;
+        flex-direction: column;
+
+        align-items: center;
+
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        padding: 10px 6px;
+    }
+
+
+    /* GLOBE */
+
+    .globe-viewer {
+        width: 100%;
+        min-width: 0;
+
+        height: clamp(
+            420px,
+            55vw,
+            600px
+        );
+
+        overflow: hidden;
+    }
+
+
+    /* INFO */
+
+    .info-panel {
+        width: 100%;
+        min-width: 0;
+
+        overflow-y: auto;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   600px AND BELOW
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    /* -----------------------------------------
+       EXPLORER SECTION
+    ----------------------------------------- */
+
+    .explorer-section {
+        width: 100%;
+        max-width: 100%;
+
+        padding-left: 10px;
+        padding-right: 10px;
+
+        overflow-x: hidden;
+    }
+
+
+    /* -----------------------------------------
+       HEADER
+    ----------------------------------------- */
+
+    .explorer-header {
+        width: 100%;
+
+        padding-left: 10px;
+        padding-right: 10px;
+
+        text-align: center;
+    }
+
+    .explorer-header h2 {
+        font-size: clamp(
+            1.7rem,
+            7vw,
+            2.4rem
+        );
+
+        line-height: 1.1;
+    }
+
+    .explorer-header > p {
+        max-width: 420px;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    /* -----------------------------------------
+       APP WINDOW
+    ----------------------------------------- */
+
+    .explorer-window {
+        width: 100%;
+        max-width: 100%;
+
+        margin-left: auto;
+        margin-right: auto;
+
+        overflow: visible;
+    }
+
+
+    /* -----------------------------------------
+       SEARCH
+    ----------------------------------------- */
+
+    .explorer-window > .search-bar {
+        width: 100%;
+    }
+
+
+    /* -----------------------------------------
+       BODY
+    ----------------------------------------- */
+
+    .explorer-body {
+
+        display: flex !important;
+
+        flex-direction: column !important;
+
+        width: 100%;
+
+        min-width: 0;
+
+        height: auto;
+
+        overflow: visible !important;
+    }
+
+
+    /* -----------------------------------------
+       TOOLBAR
+    ----------------------------------------- */
+
+    .toolbar {
+
+        order: 1;
+
+        width: 100%;
+        height: auto;
+
+        display: flex;
+
+        flex-direction: row;
+
+        align-items: center;
+        justify-content: flex-start;
+
+        gap: 8px;
+
+        padding: 8px 10px;
+
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        border-right: none;
+
+        border-bottom:
+            1px solid
+            rgba(255,255,255,0.07);
+
+        scrollbar-width: none;
+    }
+
+    .toolbar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .toolbar button {
+
+        flex: 0 0 auto;
+
+        width: 40px;
+        height: 40px;
+
+        min-width: 40px;
+        min-height: 40px;
+    }
+
+
+    /* -----------------------------------------
+       GLOBE
+    ----------------------------------------- */
+
+    .globe-viewer {
+
+        order: 2;
+
+        width: 100%;
+
+        /*
+           The globe scales with the phone,
+           but never becomes ridiculously large.
+        */
+
+        height: clamp(
+            270px,
+            72vw,
+            360px
+        );
+
+        min-height: 270px;
+        max-height: 360px;
+
+        min-width: 0;
+
+        overflow: hidden;
+    }
+
+
+    /* Make the R3F canvas fill the globe */
+
+    .globe-viewer canvas {
+
+        width: 100% !important;
+        height: 100% !important;
+
+        display: block;
+    }
+
+
+    /* -----------------------------------------
+       INFO PANEL
+    ----------------------------------------- */
+
+    .info-panel {
+
+        order: 3;
+
+        display: block !important;
+
+        width: 100%;
+
+        min-width: 0;
+
+        min-height: 180px;
+
+        height: auto;
+
+        padding: 16px;
+
+        border-left: none;
+
+        border-top:
+            1px solid
+            rgba(255,255,255,0.07);
+
+        overflow: visible;
+    }
+
+
+    /* -----------------------------------------
+       TIMELINE
+    ----------------------------------------- */
+
+    .timeline {
+
+        order: 4;
+
+        width: 100%;
+
+        height: 58px;
+
+        min-height: 58px;
+
+        flex-shrink: 0;
+    }
+
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .explorer-section {
+        padding-left: 6px;
+        padding-right: 6px;
+    }
+
+    .globe-viewer {
+
+        height: 270px;
+
+        min-height: 270px;
+        max-height: 270px;
+    }
+
+    .info-panel {
+        min-height: 165px;
+
+        padding: 14px;
+    }
+
+    .toolbar button {
+
+        width: 37px;
+        height: 37px;
+
+        min-width: 37px;
+        min-height: 37px;
+    }
+
+}
