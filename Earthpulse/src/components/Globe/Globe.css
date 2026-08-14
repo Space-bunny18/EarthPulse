@@ -1,0 +1,322 @@
+/* =====================================================
+   GLOBE CONTAINER
+===================================================== */
+
+.globe-container {
+  position: relative;
+
+  width: 100%;
+  max-width: 100%;
+
+  /*
+     The height is determined from the width.
+     This prevents the globe from becoming wider
+     than the available column.
+  */
+  aspect-ratio: 1 / 1;
+
+  height: auto;
+
+  min-width: 0;
+  min-height: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: visible;
+
+  z-index: 2;
+
+  margin: 0 auto;
+}
+
+
+/* =====================================================
+   THREE.JS CANVAS
+===================================================== */
+
+.globe-container canvas {
+  display: block !important;
+
+  width: 100% !important;
+  height: 100% !important;
+
+  max-width: 100% !important;
+  max-height: 100% !important;
+
+  outline: none;
+
+  /*
+     Do NOT let the canvas create its own size.
+  */
+  min-width: 0 !important;
+  min-height: 0 !important;
+
+  animation: floatGlobe 8s ease-in-out infinite;
+}
+
+
+/* =====================================================
+   BACKGROUND GLOW
+===================================================== */
+
+.globe-container::before {
+  content: "";
+
+  position: absolute;
+
+  /*
+     Glow follows the globe size.
+  */
+  width: 90%;
+  height: 90%;
+
+  max-width: 430px;
+  max-height: 430px;
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(89, 216, 255, 0.28) 0%,
+    rgba(89, 216, 255, 0.12) 45%,
+    transparent 75%
+  );
+
+  filter: blur(70px);
+
+  z-index: -2;
+
+  animation: glowPulse 6s ease-in-out infinite;
+
+  pointer-events: none;
+}
+
+
+/* =====================================================
+   OUTER RING
+===================================================== */
+
+.globe-container::after {
+  content: "";
+
+  position: absolute;
+
+  width: 112%;
+  height: 112%;
+
+  max-width: 600px;
+  max-height: 600px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(89, 216, 255, 0.08);
+
+  z-index: -1;
+
+  pointer-events: none;
+}
+
+
+/* =====================================================
+   GLOW ANIMATION
+===================================================== */
+
+@keyframes glowPulse {
+
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+
+}
+
+
+/* =====================================================
+   FLOATING ANIMATION
+===================================================== */
+
+@keyframes floatGlobe {
+
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+
+}
+
+
+/* =====================================================
+   TABLET / SMALL LAPTOP
+   768px - 1023px
+===================================================== */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+
+  .globe-container {
+
+    /*
+       Never use a fixed 400px / 430px here.
+
+       The globe takes at most 42% of the viewport,
+       while still being limited by its grid column.
+    */
+    width: min(
+      100%,
+      42vw
+    );
+
+    aspect-ratio: 1 / 1;
+
+    height: auto;
+
+    margin: 0 auto;
+  }
+
+}
+
+
+/* =====================================================
+   NARROW TABLETS
+   768px - 850px
+
+   This is the range where your screenshot was
+   showing the globe getting cut.
+===================================================== */
+
+@media (min-width: 768px) and (max-width: 850px) {
+
+  .globe-container {
+
+    width: min(
+      100%,
+      34vw
+    );
+
+  }
+
+}
+
+
+/* =====================================================
+   VERY NARROW TABLET
+
+   When the two-column layout becomes too cramped,
+   remove the globe completely.
+===================================================== */
+
+@media (max-width: 767px) {
+
+  .globe-container {
+    display: none;
+  }
+
+}
+
+
+/* =====================================================
+   LARGE DESKTOP
+===================================================== */
+
+@media (min-width: 1200px) {
+
+  .globe-container {
+
+    width: min(
+      100%,
+      560px
+    );
+
+  }
+
+}
+
+/* =====================================================
+   GLOBE ENTRANCE ANIMATION
+===================================================== */
+
+@keyframes globeEntrance {
+  from {
+    opacity: 0;
+    transform: translateX(50px) scale(0.92);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+
+.globe-container {
+  animation:
+    globeEntrance 1.2s cubic-bezier(0.22, 1, 0.36, 1)
+    0.35s
+    both;
+}
+
+
+/* =====================================================
+   DESKTOP GLOBE — SUBTLE FLOAT
+===================================================== */
+
+@keyframes globeFloat {
+
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+
+}
+
+
+@media (min-width: 601px) {
+
+  .globe-container {
+    animation:
+      globeEntrance 1.2s cubic-bezier(0.22, 1, 0.36, 1)
+      0.35s
+      both;
+  }
+
+}
+
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .globe-container {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+}

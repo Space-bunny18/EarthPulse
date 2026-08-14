@@ -1,0 +1,241 @@
+.navbar{
+    width:100%;
+    padding:22px 0;
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:100;
+}
+
+.navbar-container{
+
+    width:min(92%,1400px);
+
+    margin:auto;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+}
+
+.logo span{
+
+    color:white;
+
+    font-size:20px;
+
+}
+
+.logo-dot{
+
+    width:14px;
+
+    height:14px;
+
+    border-radius:50%;
+
+    background:#58D9FF;
+
+    box-shadow:
+    0 0 10px #58D9FF,
+    0 0 25px #58D9FF;
+
+}
+
+.nav-links{
+
+    display:flex;
+
+    gap:48px;
+
+    list-style:none;
+
+}
+
+.nav-links a{
+
+    color:#9BA5BC;
+
+    text-decoration:none;
+
+    transition:.3s;
+
+    font-size:15px;
+
+}
+
+.nav-links a:hover{
+
+    color:white;
+
+}
+
+.launch-btn{
+
+    padding:14px 28px;
+
+    border-radius:999px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    background:rgba(255,255,255,.05);
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    backdrop-filter:blur(10px);
+
+}
+
+.launch-btn:hover{
+
+    background:#58D9FF;
+
+    color:black;
+
+    box-shadow:0 0 30px rgba(88,217,255,.4);
+
+}
+/* =====================================================
+   MOBILE NAVBAR
+===================================================== */
+
+@media (max-width: 600px) {
+
+  .navbar {
+    width: 100%;
+    padding: 16px 14px;
+  }
+
+  .navbar-container {
+    width: 100%;
+    max-width: 100%;
+
+    display: flex;
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+  }
+
+  /* ---------- LOGO ---------- */
+
+  .logo {
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+  }
+
+  .logo span {
+    font-size: 1rem;
+    line-height: 1.05;
+    max-width: 90px;
+  }
+
+  .logo-dot {
+    flex-shrink: 0;
+  }
+
+
+  /* ---------- NAV LINKS ---------- */
+
+  .nav-links {
+    display: none !important;
+  }
+
+
+  /* ---------- LAUNCH BUTTON ---------- */
+
+  .launch-btn {
+    display: none !important;
+  }
+}
+/* =====================================================
+   HIDE NAVBAR ON SMALL SCREENS
+===================================================== */
+
+/* Phones */
+@media (max-width: 600px) {
+  .navbar {
+    display: none !important;
+  }
+}
+
+
+/* =====================================================
+   SHOW NAVBAR ON TABLETS + LAPTOPS + DESKTOP
+===================================================== */
+
+@media (min-width: 601px) {
+  .navbar {
+    display: block;
+  }
+}
+
+
+/* =====================================================
+   NAVBAR ENTRANCE ANIMATION
+===================================================== */
+
+@keyframes navbarEntrance {
+
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}
+
+
+.navbar {
+  animation:
+    navbarEntrance
+    0.8s
+    cubic-bezier(0.22, 1, 0.36, 1)
+    0.05s
+    both;
+}
+
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .navbar {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+}

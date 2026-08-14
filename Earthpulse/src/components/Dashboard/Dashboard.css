@@ -1,0 +1,350 @@
+.dashboard-section{
+    width:100%;
+    padding:90px 8% 120px;
+
+    background:
+    linear-gradient(
+        180deg,
+        rgba(5,10,20,0),
+        rgba(8,15,28,.95) 12%,
+        #07111F 100%
+    );
+
+    position:relative;
+}
+.dashboard-section::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:70%;
+    height:1px;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(87,216,255,.45),
+        transparent
+    );
+
+}
+
+.dashboard-heading{
+    text-align:center;
+    margin-bottom:70px;
+}
+
+.dashboard-tag{
+    display:inline-block;
+    padding:10px 22px;
+    border:1px solid rgba(87,216,255,.3);
+    border-radius:999px;
+    color:#57D8FF;
+    letter-spacing:2px;
+    font-size:.82rem;
+    margin-bottom:22px;
+    background:rgba(87,216,255,.05);
+}
+
+.dashboard-heading h2{
+    color:white;
+    font-size:3rem;
+    margin-bottom:20px;
+}
+
+.dashboard-subtitle{
+    color:#8EA5BF;
+    max-width:700px;
+    margin:auto;
+    line-height:1.8;
+}
+
+.dashboard-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+
+    gap:28px;
+
+    margin-top:70px;
+
+}
+
+.dashboard-card{
+
+    background:
+    rgba(11,19,34,.75);
+
+    backdrop-filter:blur(16px);
+
+    border:
+
+    1px solid rgba(87,216,255,.12);
+
+    border-radius:24px;
+
+    padding:28px;
+
+    transition:.35s;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.dashboard-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    radial-gradient(circle at top right,
+
+    rgba(87,216,255,.15),
+
+    transparent 60%);
+
+    opacity:0;
+
+    transition:.35s;
+
+}
+
+.dashboard-card:hover::before{
+
+    opacity:1;
+
+}
+
+.dashboard-card:hover{
+
+    border-color:#57D8FF;
+
+    box-shadow:
+
+    0 0 35px rgba(87,216,255,.18);
+
+}
+
+.card-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.card-icon{
+
+    font-size:2rem;
+
+}
+
+.card-trend{
+
+    color:#57D8FF;
+
+    font-size:.9rem;
+
+}
+
+.card-value{
+
+    color:white;
+
+    font-size:2.5rem;
+
+    margin:28px 0 8px;
+
+}
+
+.card-title{
+
+    color:#B8C7D9;
+
+    font-size:1rem;
+
+}
+
+.card-bottom{
+
+    margin-top:32px;
+
+    color:#6F88A7;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    font-size:.9rem;
+
+}
+
+.live-dot{
+
+    width:10px;
+
+    height:10px;
+
+    background:#36E7A5;
+
+    border-radius:50%;
+
+    box-shadow:
+
+    0 0 12px #36E7A5;
+
+    animation:pulse 1.5s infinite;
+
+}
+
+@keyframes pulse{
+
+0%{
+
+transform:scale(.8);
+
+opacity:.5;
+
+}
+
+50%{
+
+transform:scale(1.3);
+
+opacity:1;
+
+}
+
+100%{
+
+transform:scale(.8);
+
+opacity:.5;
+
+}
+
+}
+
+/* ==========================
+   MINI CHART
+========================== */
+
+.mini-chart{
+
+    margin-top:24px;
+
+    display:flex;
+
+    align-items:flex-end;
+
+    gap:5px;
+
+    height:40px;
+
+}
+
+.mini-chart span{
+
+    flex:1;
+
+    border-radius:20px;
+
+    background:linear-gradient(
+        to top,
+        rgba(87,216,255,.15),
+        #57D8FF
+    );
+
+    animation:bars 2s ease-in-out infinite;
+}
+
+.mini-chart span:nth-child(1){height:12px;}
+.mini-chart span:nth-child(2){height:22px;}
+.mini-chart span:nth-child(3){height:15px;}
+.mini-chart span:nth-child(4){height:32px;}
+.mini-chart span:nth-child(5){height:24px;}
+.mini-chart span:nth-child(6){height:36px;}
+.mini-chart span:nth-child(7){height:18px;}
+
+@keyframes bars{
+
+    0%{
+        transform:scaleY(.8);
+    }
+
+    50%{
+        transform:scaleY(1.2);
+    }
+
+    100%{
+        transform:scaleY(.8);
+    }
+
+}
+
+/* ==========================
+   CARD SPOTLIGHT
+========================== */
+
+.dashboard-card{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.card-spotlight{
+
+    position:absolute;
+
+    inset:0;
+
+    pointer-events:none;
+
+    opacity:0;
+
+    transition:opacity .25s;
+
+}
+
+.dashboard-card:hover .card-spotlight{
+
+    opacity:1;
+
+}
+
+.dashboard-card{
+    position: relative;
+    overflow: hidden;
+}
+
+.card-spotlight{
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .25s ease;
+}
+
+.dashboard-card:hover .card-spotlight{
+    opacity: 1;
+}

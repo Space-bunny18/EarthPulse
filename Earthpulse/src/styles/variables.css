@@ -1,0 +1,31 @@
+:root {
+
+  /* Backgrounds */
+  --bg-primary: #05080f;
+  --bg-secondary: #0b1220;
+  --bg-card: rgba(18, 24, 38, 0.75);
+
+  /* Primary Colors */
+  --primary: #59d8ff;
+  --primary-dark: #1ea8d8;
+
+  /* Text */
+  --text-primary: #ffffff;
+  --text-secondary: #9ca8bc;
+  --text-muted: #667085;
+
+  /* Borders */
+  --border: rgba(255,255,255,0.08);
+
+  /* Shadows */
+  --glow:
+      0 0 15px rgba(89,216,255,.25),
+      0 0 40px rgba(89,216,255,.15);
+
+  /* Radius */
+  --radius:20px;
+
+  /* Container */
+  --container:1400px;
+
+}

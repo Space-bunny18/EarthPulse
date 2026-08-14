@@ -1,0 +1,158 @@
+.background{
+    position:absolute;
+    inset:0;
+    overflow:hidden;
+    z-index:0;
+}
+
+.stars{
+    position:absolute;
+    inset:0;
+
+    background-image:
+        radial-gradient(circle,rgba(255,255,255,.8) 1px,transparent 1px);
+
+    background-size:120px 120px;
+
+    opacity:.18;
+}
+
+.glow{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    filter:blur(120px);
+
+}
+
+.glow-one{
+
+    width:700px;
+
+    height:700px;
+
+    right:-180px;
+
+    top:80px;
+
+    background:rgba(89,216,255,.12);
+
+}
+
+.glow-two{
+
+    width:450px;
+
+    height:450px;
+
+    left:-100px;
+
+    bottom:-100px;
+
+    background:rgba(39,99,255,.08);
+
+}
+/* =====================================================
+   BACKGROUND ATMOSPHERE ANIMATION
+===================================================== */
+
+
+/* -----------------------------------------------------
+   MOVING STAR FIELD
+----------------------------------------------------- */
+
+@keyframes starsDrift {
+
+  0% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 60px 30px;
+  }
+
+  100% {
+    background-position: 120px 60px;
+  }
+
+}
+
+
+.stars {
+  animation: starsDrift 25s linear infinite;
+}
+
+
+/* -----------------------------------------------------
+   CYAN ATMOSPHERIC GLOW
+----------------------------------------------------- */
+
+@keyframes glowOneMove {
+
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: translate(-35px, 25px) scale(1.06);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.7;
+  }
+
+}
+
+
+.glow-one {
+  animation: glowOneMove 12s ease-in-out infinite;
+}
+
+
+/* -----------------------------------------------------
+   BLUE ATMOSPHERIC GLOW
+----------------------------------------------------- */
+
+@keyframes glowTwoMove {
+
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.6;
+  }
+
+  50% {
+    transform: translate(30px, -25px) scale(1.08);
+    opacity: 0.9;
+  }
+
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.6;
+  }
+
+}
+
+
+.glow-two {
+  animation: glowTwoMove 15s ease-in-out infinite;
+}
+
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .stars,
+  .glow-one,
+  .glow-two {
+    animation: none;
+  }
+
+}

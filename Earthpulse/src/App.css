@@ -1,0 +1,781 @@
+.counter {
+  font-size: 16px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: var(--accent);
+  background: var(--accent-bg);
+  border: 2px solid transparent;
+  transition: border-color 0.3s;
+  margin-bottom: 24px;
+
+  &:hover {
+    border-color: var(--accent-border);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+}
+
+
+/* =====================================================
+   HERO
+   ===================================================== */
+
+.hero {
+  position: relative;
+
+  .base,
+  .framework,
+  .vite {
+    inset-inline: 0;
+    margin: 0 auto;
+  }
+
+  .base {
+    width: 170px;
+    position: relative;
+    z-index: 0;
+  }
+
+  .framework,
+  .vite {
+    position: absolute;
+  }
+
+  .framework {
+    z-index: 1;
+    top: 34px;
+    height: 28px;
+
+    transform:
+      perspective(2000px)
+      rotateZ(300deg)
+      rotateX(44deg)
+      rotateY(39deg)
+      scale(1.4);
+  }
+
+  .vite {
+    z-index: 0;
+    top: 107px;
+    height: 26px;
+    width: auto;
+
+    transform:
+      perspective(2000px)
+      rotateZ(300deg)
+      rotateX(40deg)
+      rotateY(39deg)
+      scale(0.8);
+  }
+}
+
+
+/* =====================================================
+   CENTER
+   ===================================================== */
+
+#center {
+  display: flex;
+  flex-direction: column;
+
+  gap: 25px;
+
+  place-content: center;
+  place-items: center;
+
+  flex-grow: 1;
+
+  @media (max-width: 1024px) {
+    padding: 32px 20px 24px;
+    gap: 18px;
+  }
+}
+
+
+/* =====================================================
+   NEXT STEPS
+   ===================================================== */
+
+#next-steps {
+  display: flex;
+
+  border-top: 1px solid var(--border);
+
+  text-align: left;
+
+  & > div {
+    flex: 1 1 0;
+    padding: 32px;
+
+    @media (max-width: 1024px) {
+      padding: 24px 20px;
+    }
+  }
+
+  .icon {
+    margin-bottom: 16px;
+
+    width: 22px;
+    height: 22px;
+  }
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+
+/* =====================================================
+   DOCS
+   ===================================================== */
+
+#docs {
+  border-right: 1px solid var(--border);
+
+  @media (max-width: 1024px) {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+}
+
+
+/* =====================================================
+   NEXT STEPS LIST
+   ===================================================== */
+
+#next-steps ul {
+  list-style: none;
+
+  padding: 0;
+
+  display: flex;
+
+  gap: 8px;
+
+  margin: 32px 0 0;
+
+  .logo {
+    height: 18px;
+  }
+
+  a {
+    color: var(--text-h);
+
+    font-size: 16px;
+
+    border-radius: 6px;
+
+    background: var(--social-bg);
+
+    display: flex;
+
+    padding: 6px 12px;
+
+    align-items: center;
+
+    gap: 8px;
+
+    text-decoration: none;
+
+    transition: box-shadow 0.3s;
+
+    &:hover {
+      box-shadow: var(--shadow);
+    }
+
+    .button-icon {
+      height: 18px;
+      width: 18px;
+    }
+  }
+
+  @media (max-width: 1024px) {
+    margin-top: 20px;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    li {
+      flex: 1 1 calc(50% - 8px);
+    }
+
+    a {
+      width: 100%;
+
+      justify-content: center;
+
+      box-sizing: border-box;
+    }
+  }
+}
+
+
+/* =====================================================
+   SPACER
+   ===================================================== */
+
+#spacer {
+  height: 88px;
+
+  border-top: 1px solid var(--border);
+
+  @media (max-width: 1024px) {
+    height: 48px;
+  }
+}
+
+
+/* =====================================================
+   TICKS
+   ===================================================== */
+
+.ticks {
+  position: relative;
+
+  width: 100%;
+
+  &::before,
+  &::after {
+    content: '';
+
+    position: absolute;
+
+    top: -4.5px;
+
+    border: 5px solid transparent;
+  }
+
+  &::before {
+    left: 0;
+    border-left-color: var(--border);
+  }
+
+  &::after {
+    right: 0;
+    border-right-color: var(--border);
+  }
+}
+
+
+/* =====================================================
+   GLOBAL RESPONSIVE FOUNDATION
+   ===================================================== */
+
+html,
+body,
+#root {
+  width: 100%;
+
+  min-height: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  overflow-x: hidden;
+}
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+img,
+video,
+canvas {
+  max-width: 100%;
+}
+
+
+button,
+input,
+textarea,
+select {
+  max-width: 100%;
+}
+
+
+/* =====================================================
+   SMALL PHONES
+   0px - 480px
+   ===================================================== */
+
+@media (max-width: 480px) {
+
+  /* ---------- BODY ---------- */
+
+  body {
+    width: 100%;
+
+    overflow-x: hidden;
+  }
+
+
+  /* ---------- NAVBAR ---------- */
+
+  .navbar {
+    width: 100%;
+
+    padding: 14px 16px;
+
+    gap: 12px;
+  }
+
+
+  .navbar-logo {
+    font-size: 1.05rem;
+
+    flex-shrink: 0;
+  }
+
+
+  /*
+     Hide desktop navigation.
+     This prevents the navbar from
+     becoming wider than the phone.
+  */
+
+  .navbar-links {
+    display: none !important;
+  }
+
+
+  .navbar-actions {
+    margin-left: auto;
+
+    gap: 8px;
+
+    flex-shrink: 0;
+  }
+
+
+  /* ---------- HERO ---------- */
+
+  .hero-section {
+    width: 100%;
+
+    min-height: 100svh;
+
+    padding: 90px 18px 40px;
+
+    overflow: hidden;
+  }
+
+
+  .hero-layout {
+    width: 100%;
+
+    min-height: auto;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 25px;
+  }
+
+
+  .hero-content {
+    width: 100%;
+
+    max-width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+
+    min-width: 0;
+  }
+
+
+  /* ---------- LIVE BADGE ---------- */
+
+  .live-badge {
+    max-width: 180px;
+
+    padding: 10px 14px;
+
+    font-size: 0.72rem;
+
+    letter-spacing: 1.5px;
+
+    text-align: left;
+  }
+
+
+  /* ---------- HERO TITLE ---------- */
+
+  .hero-content h1 {
+    width: 100%;
+
+    font-size: clamp(
+      3.2rem,
+      15vw,
+      5rem
+    );
+
+    line-height: 0.9;
+
+    word-break: normal;
+
+    overflow-wrap: break-word;
+
+    margin: 25px 0 18px;
+  }
+
+
+  .hero-content h1 span {
+    display: block;
+  }
+
+
+  /* ---------- HERO SUBTITLE ---------- */
+
+  .hero-content p {
+    width: 100%;
+
+    max-width: 330px;
+
+    font-size: 1rem;
+
+    line-height: 1.6;
+  }
+
+
+  /* ---------- BUTTONS ---------- */
+
+  .hero-buttons {
+    width: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 12px;
+  }
+
+
+  .hero-buttons button,
+  .hero-buttons a {
+    width: 100%;
+
+    min-height: 48px;
+  }
+
+
+  /*
+     IMPORTANT:
+     Hide the 3D globe on small phones.
+
+     At ~400px wide, the globe takes too
+     much space and makes the hero crowded.
+  */
+
+  .globe-container {
+    display: none !important;
+  }
+
+
+  /*
+     Hide any possible Three.js canvas
+     that might otherwise remain visible.
+  */
+
+  .globe-container canvas {
+    display: none !important;
+  }
+}
+
+
+/* =====================================================
+   LARGE PHONES
+   481px - 767px
+   ===================================================== */
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+  /* ---------- NAVBAR ---------- */
+
+  .navbar {
+    padding: 16px 24px;
+  }
+
+
+  .navbar-links {
+    display: none !important;
+  }
+
+
+  /* ---------- HERO ---------- */
+
+  .hero-section {
+    min-height: 100svh;
+
+    padding: 100px 28px 50px;
+  }
+
+
+  .hero-layout {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 45px;
+  }
+
+
+  .hero-content {
+    width: 100%;
+
+    max-width: 600px;
+
+    text-align: center;
+
+    align-items: center;
+  }
+
+
+  .hero-content h1 {
+    font-size: clamp(
+      4rem,
+      13vw,
+      6rem
+    );
+
+    line-height: 0.9;
+  }
+
+
+  .hero-content p {
+    max-width: 520px;
+  }
+
+
+  .hero-buttons {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    justify-content: center;
+
+    gap: 12px;
+  }
+
+
+  /*
+     Globe is allowed on larger phones.
+  */
+
+  .globe-container {
+    display: block;
+
+    position: relative;
+
+    width: min(70vw, 380px);
+
+    height: min(70vw, 380px);
+
+    max-width: 380px;
+
+    max-height: 380px;
+
+    aspect-ratio: 1 / 1;
+
+    margin: 0 auto;
+
+    overflow: hidden;
+
+    flex-shrink: 0;
+  }
+
+
+  .globe-container canvas {
+    display: block !important;
+
+    width: 100% !important;
+
+    height: 100% !important;
+
+    max-width: none !important;
+  }
+}
+
+
+/* =====================================================
+   TABLETS
+   768px - 1023px
+   ===================================================== */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+
+  /* ---------- NAVBAR ---------- */
+
+  .navbar {
+    padding: 18px 30px;
+  }
+
+
+  /* ---------- HERO ---------- */
+
+  .hero-section {
+    padding: 100px 40px 60px;
+  }
+
+
+  .hero-layout {
+    display: grid;
+
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(280px, 0.8fr);
+
+    align-items: center;
+
+    gap: 35px;
+  }
+
+
+  .hero-content {
+    max-width: 560px;
+
+    min-width: 0;
+  }
+
+
+  .hero-content h1 {
+    font-size: clamp(
+      4.5rem,
+      10vw,
+      7rem
+    );
+
+    line-height: 0.9;
+  }
+
+
+  .hero-content p {
+    max-width: 500px;
+  }
+
+
+  /*
+     Tablet globe
+  */
+
+  .globe-container {
+    display: block;
+
+    position: relative;
+
+    width: min(42vw, 430px);
+
+    height: min(42vw, 430px);
+
+    max-width: 430px;
+
+    max-height: 430px;
+
+    aspect-ratio: 1 / 1;
+
+    margin: 0 auto;
+
+    overflow: hidden;
+
+    flex-shrink: 0;
+  }
+
+
+  .globe-container canvas {
+    display: block !important;
+
+    width: 100% !important;
+
+    height: 100% !important;
+
+    max-width: none !important;
+  }
+}
+
+/* =====================================================
+   HERO GLOBE RESPONSIVENESS
+   ===================================================== */
+
+.hero-globe {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* =====================================================
+   SMALL PHONES
+   ===================================================== */
+
+@media (max-width: 480px) {
+
+  .hero-globe {
+    display: none !important;
+  }
+
+}
+
+
+/* =====================================================
+   LARGE PHONES
+   ===================================================== */
+
+@media (min-width: 481px) and (max-width: 767px) {
+
+  .hero-globe {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+}
+
+
+/* =====================================================
+   TABLETS
+   ===================================================== */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+
+  .hero-globe {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+}
+/* =====================================================
+   DESKTOP
+   1024px+
+   ===================================================== */
+
+/*
+   It will remain same .
+*/
+
