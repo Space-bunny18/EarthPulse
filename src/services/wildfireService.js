@@ -1,7 +1,6 @@
+import { API_URL } from "../config";
 export async function getWildfires() {
-  const response = await fetch(
-    "http://localhost:5000/api/wildfires"
-  );
+  const response = await fetch(`${API_URL}/api/wildfires`);
 
   if (!response.ok) {
     throw new Error(
