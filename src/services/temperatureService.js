@@ -1,13 +1,15 @@
-import { API_URL } from "../config";
+const API_URL =
+    "http://localhost:5000/api/temperature";
 
 export async function getTemperatures() {
-  const response = await fetch(`${API_URL}/api/temperature`);
+    const response =
+        await fetch(API_URL);
 
-  if (!response.ok) {
-    throw new Error("Failed to fetch temperature data");
-  }
+    if (!response.ok) {
+        throw new Error(
+            "Failed to fetch temperature data"
+        );
+    }
 
-  const data = await response.json();
-
-  return data;
+    return await response.json();
 }

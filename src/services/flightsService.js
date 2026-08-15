@@ -1,6 +1,6 @@
-import { API_URL } from "../config";
+
 export async function getFlights() {
-    const response = await fetch(`${API_URL}/api/flights`);
+    const response = await fetch("http://localhost:5000/api/flights");
 
     if (!response.ok) {
         throw new Error("Failed to fetch flights");

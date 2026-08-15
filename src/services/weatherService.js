@@ -1,4 +1,3 @@
-import { API_URL } from "../config";
 const API_KEY = import.meta.env.VITE_OPENWEATHER_API_KEY;
 
 const CITY = "New Delhi";
